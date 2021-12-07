@@ -1,0 +1,17 @@
+<p-table [columns]="cols" [value]="flights" [lazy]="true" (onLazyLoad)="loadFlightData($event)" [paginator]="true" [rows]="10" totalRecords="40" [loading]="loading">
+
+    <ng-template pTemplate="header" let-columns>
+        <tr>
+            <th *ngFor="let col of columns">
+                {{col.header}}
+            </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowFlightData let-columns="columns">
+        <tr>
+            <td *ngFor="let col of columns">
+                {{rowFlightData[col.field]}}
+            </td>
+        </tr>
+    </ng-template>
+</p-table>
